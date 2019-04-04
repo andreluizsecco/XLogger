@@ -9,6 +9,7 @@ namespace XLogger
         
         bool IsEnabled(LogLevel logLevel);
 
+        // TODO: Loggers defined as 'OnDemand' will write only when they are explicitly called
         bool IsOnDemand();
 
         void Write<Tstate>(LogLevel logLevel, EventId eventId, Tstate state, Exception exception, Func<Tstate, Exception, string> formatter);

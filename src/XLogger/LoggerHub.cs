@@ -23,11 +23,5 @@ namespace XLogger
             this.AddProvider(loggerProvider);
             return this;
         }
-
-        public void LogAll()
-        {
-            foreach (var logger in _loggerProviders)
-                logger.Key.Error("ERROOO EM TUUUDOOOOO");
-        }
     }
 }
