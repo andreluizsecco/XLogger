@@ -1,20 +1,16 @@
 using System;
 using Microsoft.Extensions.Logging;
+using XLogger.Options;
 
 namespace XLogger
 {
     public interface ILogger : IDisposable
     {
-        IDisposable BeginScope<TState>(TState state);
-        
-        bool IsEnabled(LogLevel logLevel);
+        ILoggerOptions Options { get; }
 
-        // TODO: Loggers defined as 'OnDemand' will write only when they are explicitly called
-        bool IsOnDemand();
+        IDisposable BeginScope<TState>(TState state);
 
         void Write<Tstate>(LogLevel logLevel, EventId eventId, Tstate state, Exception exception, Func<Tstate, Exception, string> formatter);
-
-        void Write<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
                 
         void Trace<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
         

@@ -15,11 +15,14 @@ namespace XLogger
             _logger.BeginScope(state);
 
         public bool IsEnabled(LogLevel logLevel) =>
-            _logger.IsEnabled(logLevel);
+            _logger.Options.IsEnabled(logLevel);
+
+        public bool IsOnDemand() =>
+            _logger.Options.IsOnDemand();
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            if (!IsEnabled(logLevel) || _logger.IsOnDemand())
+            if (!IsEnabled(logLevel) || IsOnDemand())
                 return;
             
             _logger.Write(logLevel, eventId, state, exception, formatter);
