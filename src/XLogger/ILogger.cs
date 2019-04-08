@@ -11,6 +11,8 @@ namespace XLogger
         IDisposable BeginScope<TState>(TState state);
 
         void Write<Tstate>(LogLevel logLevel, EventId eventId, Tstate state, Exception exception, Func<Tstate, Exception, string> formatter);
+
+        void Write<Tstate>(LogLevel logLevel, Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
                 
         void Trace<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
         

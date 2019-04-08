@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace XLogger.Options
@@ -11,5 +12,7 @@ namespace XLogger.Options
         bool IsEnabled(LogLevel logLevel);
 
         bool IsOnDemand();
+
+        void ReadFromConfiguration(IConfiguration configuration);
     }
 }

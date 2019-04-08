@@ -1,8 +1,9 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace XLogger.Options
 {
-    public class LoggerOptions : ILoggerOptions
+    public abstract class LoggerOptions : ILoggerOptions
     {
         public LogLevel LogLevel { get; set; }
         public bool OnDemand { get; set; }
@@ -19,5 +20,7 @@ namespace XLogger.Options
             LogLevel <= logLevel;
 
         public bool IsOnDemand() => OnDemand;
+        
+        public abstract void ReadFromConfiguration(IConfiguration configuration);
     }
 }
