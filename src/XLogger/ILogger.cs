@@ -8,7 +8,7 @@ namespace XLogger
     {
         ILoggerOptions Options { get; }
 
-        IDisposable BeginScope<TState>(TState state);
+        IDisposable BeginScope<TData>(TData data);
 
         void Write<TData>(LogLevel logLevel, EventId eventId, TData data, Exception exception, Func<TData, Exception, string> formatter);
 
