@@ -11,18 +11,18 @@ namespace XLogger
         IConfiguration Configuration { get; }
         ILoggerHub AddLogger(ILogger logger);
         
-        void Write<Tstate>(LogLevel logLevel, Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Write<TData>(LogLevel logLevel, TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
                 
-        void Trace<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Trace<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
         
-        void Debug<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Debug<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
 
-        void Information<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Information<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
 
-        void Warning<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Warning<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
         
-        void Error<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Error<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
 
-        void Critical<Tstate>(Tstate state, Exception exception = null, Func<Tstate, Exception, object> formatter = null);
+        void Critical<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null);
     }
 }

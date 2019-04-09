@@ -7,7 +7,6 @@ namespace XLogger.Options
     {
         LogLevel LogLevel { get; set; }
         bool OnDemand { get; set; }
-        string DateTimeFormat { get; set; }
 
         bool IsEnabled(LogLevel logLevel);
 

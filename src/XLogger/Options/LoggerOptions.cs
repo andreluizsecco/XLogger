@@ -7,13 +7,11 @@ namespace XLogger.Options
     {
         public LogLevel LogLevel { get; set; }
         public bool OnDemand { get; set; }
-        public string DateTimeFormat { get; set; }
 
         public LoggerOptions()
         {
             LogLevel = LogLevel.Information;
             OnDemand = false;
-            DateTimeFormat = null;
         }
 
         public bool IsEnabled(LogLevel logLevel) =>
