@@ -8,9 +8,10 @@
     <Owners>andreluizsecco</Owners>
     <Product>XLogger</Product>
     <Description>Extensible, open-source and cross-platform logging for .NET</Description>
-    <PackageLicenseUrl>https://github.com/andreluizsecco/XLogger/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/andreluizsecco/XLogger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/andreluizsecco/XLogger</RepositoryUrl>
+    <PackageIconUrl>https://github.com/andreluizsecco/XLogger/raw/master/logo.png</PackageIconUrl>
     <Version>1.1.0-preview</Version>
     <PackageTags>XLogger Logger Logging Log Extensible dotnet .NET</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
