@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>XLogger</PackageId>
-    <Version>1.0.0-preview</Version>
     <Authors>André Secco</Authors>
     <Owners>andreluizsecco</Owners>
     <Product>XLogger</Product>
@@ -12,7 +11,7 @@
     <PackageProjectUrl>https://github.com/andreluizsecco/XLogger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/andreluizsecco/XLogger</RepositoryUrl>
     <PackageIconUrl>https://github.com/andreluizsecco/XLogger/raw/master/logo.png</PackageIconUrl>
-    <Version>1.1.0-preview</Version>
+    <Version>1.0.0-preview</Version>
     <PackageTags>XLogger Logger Logging Log Extensible dotnet .NET</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
