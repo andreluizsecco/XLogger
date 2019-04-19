@@ -45,7 +45,7 @@ namespace XLogger
         }
 
         private IConfiguration GetConfiguration(IServiceCollection serviceCollection) =>
-            (IConfiguration)serviceCollection.FirstOrDefault(p => p.ServiceType == typeof(IConfiguration)).ImplementationInstance;
+            (IConfiguration)serviceCollection.FirstOrDefault(p => p.ServiceType == typeof(IConfiguration))?.ImplementationInstance;
 
         /// <summary>
         /// Writes a log entry to all loggers registered.
