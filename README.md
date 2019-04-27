@@ -1,4 +1,5 @@
-# XLogger
+![](https://raw.githubusercontent.com/andreluizsecco/XLogger/dev/logo_horizontal.png)
+
 Extensible, open-source and cross-platform logging for .NET
 
 [![License](https://img.shields.io/github/license/andreluizsecco/xlogger.svg)](LICENSE)
