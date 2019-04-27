@@ -37,4 +37,4 @@ Check the complete roadmap: [https://github.com/andreluizsecco/XLogger/wiki/road
 
 ## Author
 
-The Cognitive-LUIS-Programmatic was developed by [André Secco](http://andresecco.com.br) under the [MIT license](LICENSE).
+The XLogger was developed by [André Secco](http://andresecco.com.br) under the [MIT license](LICENSE).
