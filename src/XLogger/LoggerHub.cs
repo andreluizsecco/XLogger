@@ -21,9 +21,14 @@ namespace XLogger
         /// </summary>
         public IConfiguration Configuration { get; }
 
-        public LoggerHub(IServiceCollection serviceCollection, Action<ILoggerHub> loggerHubOptions)
+        public LoggerHub()
         {
             _loggers = new List<ILogger>();
+            Services = new ServiceCollection();
+        }
+        
+        public LoggerHub(IServiceCollection serviceCollection, Action<ILoggerHub> loggerHubOptions) : this()
+        {
             Configuration = GetConfiguration(serviceCollection);
             serviceCollection.AddSingleton<ILoggerHub>(this);
             Services = serviceCollection;
