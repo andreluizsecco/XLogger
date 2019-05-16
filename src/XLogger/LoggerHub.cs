@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -67,6 +68,20 @@ namespace XLogger
         }
 
         /// <summary>
+        /// Writes a log entry to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="logLevel">Entry will be written on this level.</param>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task WriteAsync<TData>(LogLevel logLevel, TData data, Exception exception = null, Func<TData, Exception, object> formatter = null)
+        {
+            foreach (var logger in _loggers)
+                await logger.WriteAsync(logLevel, data, exception, formatter);
+        }
+
+        /// <summary>
         /// Writes a log entry on trace level to all loggers registered.
         /// </summary>
         /// <typeparam name="TData">type of entry.</typeparam>
@@ -75,6 +90,16 @@ namespace XLogger
         /// <param name="formatter">Function to create a custom object of the data and exception.</param>
         public void Trace<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
             Write(LogLevel.Trace, data, exception, formatter);
+
+        /// <summary>
+        /// Writes a log entry on trace level to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task TraceAsync<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
+            await WriteAsync(LogLevel.Trace, data, exception, formatter);
 
         /// <summary>
         /// Writes a log entry on debug level to all loggers registered.
@@ -87,6 +112,16 @@ namespace XLogger
             Write(LogLevel.Debug, data, exception, formatter);
 
         /// <summary>
+        /// Writes a log entry on debug level to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task DebugAsync<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
+            await WriteAsync(LogLevel.Debug, data, exception, formatter);
+
+        /// <summary>
         /// Writes a log entry on information level to all loggers registered.
         /// </summary>
         /// <typeparam name="TData">type of entry.</typeparam>
@@ -95,6 +130,16 @@ namespace XLogger
         /// <param name="formatter">Function to create a custom object of the data and exception.</param>
         public void Information<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
             Write(LogLevel.Information, data, exception, formatter);
+
+        /// <summary>
+        /// Writes a log entry on information level to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task InformationAsync<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
+            await WriteAsync(LogLevel.Information, data, exception, formatter);
 
         /// <summary>
         /// Writes a log entry on warning level to all loggers registered.
@@ -107,6 +152,16 @@ namespace XLogger
             Write(LogLevel.Warning, data, exception, formatter);
 
         /// <summary>
+        /// Writes a log entry on warning level to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task WarningAsync<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
+            await WriteAsync(LogLevel.Warning, data, exception, formatter);
+
+        /// <summary>
         /// Writes a log entry on error level to all loggers registered.
         /// </summary>
         /// <typeparam name="TData">type of entry.</typeparam>
@@ -117,6 +172,16 @@ namespace XLogger
             Write(LogLevel.Error, data, exception, formatter);
 
         /// <summary>
+        /// Writes a log entry on error level to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task ErrorAsync<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
+            await WriteAsync(LogLevel.Error, data, exception, formatter);
+
+        /// <summary>
         /// Writes a log entry on critical level to all loggers registered.
         /// </summary>
         /// <typeparam name="TData">type of entry.</typeparam>
@@ -125,5 +190,15 @@ namespace XLogger
         /// <param name="formatter">Function to create a custom object of the data and exception.</param>
         public void Critical<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
             Write(LogLevel.Critical, data, exception, formatter);
+
+        /// <summary>
+        /// Writes a log entry on critical level to all loggers registered.
+        /// </summary>
+        /// <typeparam name="TData">type of entry.</typeparam>
+        /// <param name="data">The entry to be written. Can be also an object.</param>
+        /// <param name="exception">The exception related to this entry.</param>
+        /// <param name="formatter">Function to create a custom object of the data and exception.</param>
+        public async Task CriticalAsync<TData>(TData data, Exception exception = null, Func<TData, Exception, object> formatter = null) =>
+            await WriteAsync(LogLevel.Critical, data, exception, formatter);
     }
 }
