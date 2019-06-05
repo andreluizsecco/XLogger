@@ -28,9 +28,9 @@ Install-Package XLogger
 ```
 dotnet add package XLogger
 ```
-## How to Use
+## Documentation
 
-Check the our Wiki: [https://github.com/andreluizsecco/XLogger/wiki/get-started](https://github.com/andreluizsecco/XLogger/wiki/get-started)
+Check the our Wiki: [https://github.com/andreluizsecco/XLogger/wiki](https://github.com/andreluizsecco/XLogger/wiki)
 
 ## Roadmap
 
