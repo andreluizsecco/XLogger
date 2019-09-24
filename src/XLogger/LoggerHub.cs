@@ -50,8 +50,17 @@ namespace XLogger
             return this;
         }
 
-        private IConfiguration GetConfiguration(IServiceCollection serviceCollection) =>
-            (IConfiguration)serviceCollection.FirstOrDefault(p => p.ServiceType == typeof(IConfiguration))?.ImplementationInstance;
+        private IConfiguration GetConfiguration(IServiceCollection serviceCollection)
+        {
+            var configurationService = serviceCollection.FirstOrDefault(p => p.ServiceType == typeof(IConfiguration));
+            var configuration = configurationService.ImplementationInstance ??
+                                configurationService.ImplementationFactory.Invoke(serviceCollection.BuildServiceProvider());
+            
+            return (IConfiguration)configuration;
+        }
+
+        // private IConfiguration GetConfiguration(IServiceCollection serviceCollection) =>
+        //     (IConfiguration)serviceCollection.FirstOrDefault(p => p.ServiceType == typeof(IConfiguration))?.ImplementationInstance;
 
         /// <summary>
         /// Writes a log entry to all loggers registered.
